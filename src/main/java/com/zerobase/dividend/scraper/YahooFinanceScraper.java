@@ -17,13 +17,6 @@ import java.util.List;
 
 public class YahooFinanceScraper {
 
-    /*private static final String URL = "https://finance.yahoo.com/quote/COKE/history?" +
-            "period1=99100800&" +
-            "period2=1698537600&" +
-            "interval=1mo&" +
-            "filter=history&" +
-            "frequency=1mo&" +
-            "includeAdjustedClose=true";*/
     private static final String STATISTICS_URL
             = "https://finance.yahoo.com/quote/%s/history?" +
             "period1=%d&period2=%d&interval=1mo";
@@ -40,7 +33,7 @@ public class YahooFinanceScraper {
             Document document = connection.get();
 
             Elements parsingDivs = document.getElementsByAttributeValue("data-test", "historical-prices");
-            Element tableEle = parsingDivs.get(0);// table전체
+            Element tableEle = parsingDivs.get(0);// table 전체
 
             Element tbody = tableEle.children().get(1);
 
