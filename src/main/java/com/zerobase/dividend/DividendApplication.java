@@ -13,26 +13,15 @@ import java.io.IOException;
 @SpringBootApplication
 public class DividendApplication {
 
-	public static void main(String[] args) {
-		//SpringApplication.run(DividendApplication.class, args);
+    public static void main(String[] args) {
+        //SpringApplication.run(DividendApplication.class, args);
+        String s = "Hello my name is %s";
 
-		try {
-			Connection connection = Jsoup.connect("https://finance.yahoo.com/quote/COKE/" +
-					"history?" +
-					"period1=99100800&" +
-					"period2=1698537600&" +
-					"interval=1mo&" +
-					"filter=history&" +
-					"frequency=1mo&" +
-					"includeAdjustedClose=true");
-			Document document = connection.get();
+        String[] names = {"asd","qwe","zxc"};
+        for (String name : names ) {
+            System.out.println(String.format(s,name));
+        }
 
-			Elements eles = document.getElementsByAttributeValue("data-test","historical-prices");
-			Element ele = eles.get(0);
-			System.out.println(ele);
-		}catch (IOException e){
-			e.printStackTrace();
-		}
-	}
+    }
 
 }
