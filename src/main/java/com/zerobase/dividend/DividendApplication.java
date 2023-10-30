@@ -1,5 +1,8 @@
 package com.zerobase.dividend;
 
+import com.zerobase.dividend.model.Company;
+import com.zerobase.dividend.model.ScrapedResult;
+import com.zerobase.dividend.scraper.YahooFinanceScraper;
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -15,13 +18,10 @@ public class DividendApplication {
 
     public static void main(String[] args) {
         //SpringApplication.run(DividendApplication.class, args);
-        String s = "Hello my name is %s";
 
-        String[] names = {"asd","qwe","zxc"};
-        for (String name : names ) {
-            System.out.println(String.format(s,name));
-        }
-
+        YahooFinanceScraper scraper = new YahooFinanceScraper();
+        var result = scraper.scrap(Company.builder().ticker("0").build());
+        System.out.println(result);
     }
 
 }
