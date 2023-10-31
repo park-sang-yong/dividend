@@ -1,5 +1,6 @@
 package com.zerobase.dividend.persist.entity;
 
+import com.zerobase.dividend.model.Dividend;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -23,4 +24,10 @@ public class DividendEntity {
     private Long companyId;
     private LocalDateTime date;
     private String dividend;
+
+    public DividendEntity(Long companyId, Dividend dividend){
+        this.companyId=companyId;
+        this.date = dividend.getDate();
+        this.dividend = dividend.getDividend();
+    }
 }
