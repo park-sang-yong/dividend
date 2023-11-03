@@ -18,12 +18,17 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-//	implementation 'org.springframework.boot:spring-boot-starter-security:3.1.2'
+	implementation 'org.springframework.boot:spring-boot-starter-data-redis:3.1.2'
+	implementation 'org.springframework.boot:spring-boot-starter-security:3.1.2'
 
 	implementation 'com.h2database:h2-mvstore:2.1.214'
 //	implementation group: 'org.jsoup', name: 'jsoup', version: '1.10.2'
 	implementation 'org.jsoup:jsoup:1.15.4'
+	implementation 'io.jsonwebtoken:jjwt:0.9.1'
+//	implementation 'org.webjars.npm:jsonwebtoken:8.5.1'
 	implementation 'org.apache.commons:commons-collections4:4.3'
+	implementation 'javax.xml.bind:jaxb-api:2.3.1'
+
 
 	compileOnly 'org.projectlombok:lombok:1.18.28'
 	annotationProcessor 'org.projectlombok:lombok:1.18.28'
