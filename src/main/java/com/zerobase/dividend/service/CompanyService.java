@@ -2,6 +2,7 @@ package com.zerobase.dividend.service;
 
 
 import com.zerobase.dividend.AutoComplete;
+import com.zerobase.dividend.exception.impl.NoCompanyException;
 import com.zerobase.dividend.model.Company;
 import com.zerobase.dividend.model.ScrapedResult;
 import com.zerobase.dividend.persist.CompanyRepository;
@@ -81,5 +82,15 @@ public class CompanyService {
 
     public void deleteAutocompleteKeyword(String keyword){
         this.trie.remove(keyword);
+    }
+    public String deleteCompany(String ticker){
+        var company = this.companyRepository.findByTicker(ticker)
+                .orElseThrow(NoCompanyException::new);
+        this.dividendRepository.deleteAllByCompanyId(company.getId());
+        this.companyRepository.delete(company);
+
+        this.deleteAutocompleteKeyword(company.getName());
+
+        return company.getName();
     }
 }
