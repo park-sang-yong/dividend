@@ -1,7 +1,6 @@
 package com.zerobase.dividend;
 
 import org.apache.commons.collections4.Trie;
-import org.apache.commons.collections4.trie.PatriciaTrie;
 
 public class AutoComplete {
 

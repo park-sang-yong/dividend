@@ -1,7 +1,6 @@
 package com.zerobase.dividend.service;
 
 
-import com.zerobase.dividend.AutoComplete;
 import com.zerobase.dividend.exception.impl.AlreadyExistsTickerException;
 import com.zerobase.dividend.exception.impl.FailScrapException;
 import com.zerobase.dividend.exception.impl.NoCompanyException;
@@ -14,7 +13,6 @@ import com.zerobase.dividend.persist.entity.DividendEntity;
 import com.zerobase.dividend.scraper.Scraper;
 import lombok.AllArgsConstructor;
 import org.apache.commons.collections4.Trie;
-import org.apache.commons.collections4.trie.PatriciaTrie;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;

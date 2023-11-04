@@ -11,7 +11,9 @@ public class AlreadyExistsTickerException extends AbstractException {
 
     @Override
     public String getMessage() {
+
         return "이미 존재하는 회사 입니다.";
     }
+
 
 }
