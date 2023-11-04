@@ -1,5 +1,6 @@
 package com.zerobase.dividend.web;
 
+import com.zerobase.dividend.exception.impl.EmptyTickerException;
 import com.zerobase.dividend.model.Company;
 import com.zerobase.dividend.model.constants.CacheKey;
 import com.zerobase.dividend.persist.entity.CompanyEntity;
@@ -47,7 +48,7 @@ public class CompanyController {
     public ResponseEntity<?> addCompany(@RequestBody Company request){
         String ticker = request.getTicker().trim();
         if (ObjectUtils.isEmpty(ticker)){
-            throw new RuntimeException("ticker is empty");
+            throw new EmptyTickerException();
         }
         Company company = this.companyService.save(ticker);
         this.companyService.addAutocompleteKeyword(company.getName());

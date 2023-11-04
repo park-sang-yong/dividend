@@ -1,5 +1,6 @@
 package com.zerobase.dividend.scraper;
 
+import com.zerobase.dividend.exception.impl.UnexpectedMonthException;
 import com.zerobase.dividend.model.Company;
 import com.zerobase.dividend.model.Dividend;
 import com.zerobase.dividend.model.ScrapedResult;
@@ -55,8 +56,9 @@ public class YahooFinanceScraper implements Scraper {
                 int year = Integer.valueOf(splits[2]);
                 String dividend = splits[3];
 
-                if (month < 0) {
-                    throw new RuntimeException("Unexpected Month enum value -> " + splits[0]);
+                if (month < 1 || month > 12) {
+                    throw new UnexpectedMonthException();
+                    //throw new RuntimeException("Unexpected Month enum value -> " + splits[0]);
                 }
 
                 dividends.add(new Dividend(LocalDateTime.of(year, month, day, 0, 0), dividend));
